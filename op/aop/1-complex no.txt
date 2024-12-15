@@ -1,0 +1,31 @@
+import java.util.*;
+class Main{
+    private double real,img;
+    Main(double real,double img){
+        this.real=real;
+        this.img=img;
+    }
+    static Main sum(Main m1,Main m2){
+        Main temp= new Main(0,0);
+        temp.real=m1.real+m2.real;
+        temp.img=m1.img+m2.img;
+        System.out.println("sum is : "+temp.real+" + "+temp.img+" i");
+        return temp;
+    }
+    public static void main(String args[]){
+        Scanner s1=new Scanner(System.in);
+                System.out.print("enter 1st real number : ");
+                double a=s1.nextDouble();
+                System.out.print("enter 1st img number : ");
+                    double b=s1.nextDouble();
+                System.out.print("enter 2nd real number : ");
+                    double c=s1.nextDouble();
+                System.out.print("enter 12nd img number : ");
+                    double d=s1.nextDouble();
+                    System.out.println("1st number : "+a+" + "+b+" i");
+                    System.out.println("2nd number : "+c+" + "+d+" i");
+        Main m1=new Main(a,b);
+        Main m2 = new Main(c,d);
+        Main.sum(m1,m2);
+    }
+}
