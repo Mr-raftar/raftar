@@ -1,0 +1,90 @@
+import java.util.*;
+public class Main{
+
+    public static int even(Collection<Integer> collection){
+        int count=0;
+        for(Integer i1:collection){
+            if(i1%2==0){
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public static int odd(Collection<Integer>c1){
+        int count=0;
+        for(Integer i1:c1){
+            if(i1%2!=0){
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public static int prime(Collection<Integer>c1){
+        int count=0;
+        for(Integer i1:c1){
+            if(isprime(i1)){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static boolean isprime(Integer num){
+        if(num<=1) return false;
+        for(int i=2; i<=Math.sqrt(num);i++){
+            if(num%i==0) return false;
+        }
+        return true;
+        
+    }
+    public static int palidrome(Collection<String>c1){
+        int count=0;
+        for(String i1:c1){
+            if(ispalidrome(i1)){
+                count++;
+            }
+            
+        }
+        return count;
+    }
+    
+    public static boolean ispalidrome(String str){
+        String rev=new StringBuilder(str).reverse().toString();
+        return str.equals(rev);
+    }
+    
+    public static void main(String[] args){
+        List<Integer> num=Arrays.asList(2,5,6,4,8,9,7,23,12,25);
+        System.out.println("Number is : "+num);
+        System.out.println("even count : "+even(num));
+        System.out.println("odd count : "+odd(num));
+        System.out.println("prime count : "+prime(num));
+        
+        List<String> str=Arrays.asList("amol","kartik","anuu","omamo","hiiiih");
+        System.out.println("palidrome is : "+palidrome(str));
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}

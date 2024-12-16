@@ -1,0 +1,40 @@
+class Publication{
+    protected String title;
+    protected double price;
+    protected int copies;
+    Publication(String title,double price,int copies){
+        this.title=title;
+        this.price=price;
+        this.copies=copies;
+    }
+    public void saleCopy(){
+        system.out.println("Total sell :"+price*copies);
+    }
+    public void displayinfo(){
+        system.out.println("Title : "+title+
+                        "Price : "+price+      
+                        "Copies : "+copies      
+                             );}
+}
+class Book extends Publication{
+    protected String author;
+    Book(String title,double price,int copies,String author){
+        super(title,price,copies);
+        this.author=author;
+    }
+    void orderCopies(int count){
+        this.copies=copies+count;
+        System.out.println("Total order Copies : "+copies);
+    }
+    
+}
+
+public class Main {
+    public static void main(String[] args) {
+         Book b1=new book("Java Programming",250,50,"amol Gaikwad");
+          b1.displayinfo();
+          b1.orderCopies(10);
+           b1.saleCopy();
+       
+    }
+}
