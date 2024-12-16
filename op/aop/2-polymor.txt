@@ -8,12 +8,13 @@ class Publication{
         this.copies=copies;
     }
     public void saleCopy(){
-        system.out.println("Total sell :"+price*copies);
+        System.out.println("Total sell :"+price*copies);
     }
     public void displayinfo(){
-        system.out.println("Title : "+title+
-                        "Price : "+price+      
-                        "Copies : "+copies      
+        System.out.println("Title : "+title+
+                        
+                        "\nPrice : "+price+      
+                        "\nCopies : "+copies      
                              );}
 }
 class Book extends Publication{
@@ -31,7 +32,8 @@ class Book extends Publication{
 
 public class Main {
     public static void main(String[] args) {
-         Book b1=new book("Java Programming",250,50,"amol Gaikwad");
+        
+         Book b1=new Book("Java Programming",250,50,"amol Gaikwad");
           b1.displayinfo();
           b1.orderCopies(10);
            b1.saleCopy();
