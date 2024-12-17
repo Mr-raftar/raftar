@@ -1,0 +1,81 @@
+class Publication{
+    public String title;
+    public double price;
+    public int copies;
+    Publication(String title,double price,int copies){
+        this.title=title;
+        this.price=price;
+        this.copies=copies;
+    }
+    public void saleCopy(){
+      System.out.println("orderd copies : "+copies);
+        System.out.println("total sale : "+price*copies);
+    }
+    public void display(){
+        System.out.println("Title : "+title+
+                        "\nprice of copie : "+price+
+                        "\n orderd copies : "+copies);
+    }
+    
+}
+class Book extends Publication{
+    String author;
+    Book(String title,double price,int copies,String author){
+        super(title,price,copies);
+        this.author=author;
+    }
+    public void orderCopies(int addcopies){
+        copies+=addcopies;
+         System.out.println("total order copies : "+copies);
+    }
+    public void saleCopy(){
+        System.out.println("total sale : "+price*copies);
+    }
+    public void display(){
+        System.out.println("\nBook Title : "+title+
+                        "\n Author Name : "+author+
+                        "\nprice of copie : "+price+
+                        "\n orderd copies : "+copies);
+    }
+    
+}
+class Magzine extends Publication{
+    int currentissue;
+    Magzine(String title,double price,int copies,int currentissue){
+        super(title,price,copies);
+        this.currentissue=currentissue;
+    }
+    void order(int orderQty){
+        this.copies+=orderQty;
+    }
+    public void reciveissue(int newissue ){
+        this.currentissue=newissue;
+    }
+    public void saleCopy(){
+        System.out.println("total sale : "+price*copies);
+    }
+     public void display(){
+        System.out.println("\nMagzine Title : "+title+
+                        "\n issue : "+currentissue+
+                        "\nprice of copie : "+price+
+                        "\n orderd copies : "+copies);
+    }
+    
+}
+
+
+class Main {
+    public static void main(String[] args) {
+        Book b1=new Book("c++ program",100,80,"Amol");
+      b1.display();
+      b1.orderCopies(10);
+      b1.display();
+      b1.saleCopy();
+      Magzine m1=new Magzine("java program",200,50,2023);
+      m1.display();
+      m1.order(20);
+      m1.reciveissue(2024);
+      m1.display();
+      m1.saleCopy();
+    }
+}

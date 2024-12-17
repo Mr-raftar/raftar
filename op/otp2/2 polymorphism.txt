@@ -1,0 +1,102 @@
+class Publication    // Base Class
+   {
+    String title;
+    double price;
+    int copies;
+
+    Publication(String title, double price, int copies)
+    {
+        this.title = title;
+        this.price = price;
+        this.copies = copies;
+    }
+
+    double saleCopy()      // Method to calculate total sales
+   {
+        return price * copies;
+    }
+    void displayDetails()  // Display details
+     {
+        System.out.println("Title: " + title);
+        System.out.println("Price: $" + price);
+        System.out.println("Copies sold: " + copies);
+        System.out.println("Total sales: $" + saleCopy());
+    }
+}
+class Book extends Publication     // Book class inheriting from Publication
+{
+    String author;
+
+    Book(String title, double price, int copies, String author)
+    {
+        super(title, price, copies);
+        this.author = author;
+    }
+    void orderCopies(int additionalCopies)     // Method to order copies
+    {
+        copies += additionalCopies;
+    }
+    void displayDetails()     // Override to display additional details
+    {
+        super.displayDetails();
+        System.out.println("Author: " + author);
+    }
+}
+class Magazine extends Publication 
+// Magazine class inheriting from Publication
+ {
+    String currentIssue;
+
+    Magazine(String title, double price, int copies, String currentIssue) {
+        super(title, price, copies);
+        this.currentIssue = currentIssue;
+    }
+
+    // Method to order quantity
+    void orderQty(int quantity) 
+     {
+        copies += quantity;
+    }
+
+    // Method to receive an issue
+    void receiveIssue(String newIssue)    // Method to receive an issue
+   {
+        currentIssue = newIssue;
+    }
+
+    void displayDetails()  // Override to display additional details
+{
+        super.displayDetails();
+        System.out.println("Current Issue: " + currentIssue);
+    }
+}
+public class PublicationDemo   // Main CLass
+ {
+    public static void main(String[] args)
+    {
+        // Create instances of Book and Magazine
+        Book book1 = new Book("Java Programming", 39.99, 100, "John Doe");
+        Magazine mag1 = new Magazine("Tech Today", 5.99, 200, "Sept 2024");
+
+        // Display details
+        System.out.println("Book Details:");
+        book1.displayDetails();
+        System.out.println();
+
+        System.out.println("Magazine Details:");
+        mag1.displayDetails();
+        System.out.println();
+
+        // Order more copies and display updated details
+        book1.orderCopies(50);
+        mag1.orderQty(100);
+
+        System.out.println("Updated Book Details:");
+        book1.displayDetails();
+        System.out.println();
+
+        System.out.println("Updated Magazine Details:");
+        mag1.displayDetails();
+    }
+}
+

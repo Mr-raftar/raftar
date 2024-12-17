@@ -1,0 +1,109 @@
+class Employee{
+    public String Emp_name;
+    public int Emp_id;
+    public String Address;
+    public String Mail_id;
+    public long Mobile_no;
+    Employee(String Emp_name,int Emp_id,String Address,String Mail_id,long Mobile_no){
+        this.Emp_name=Emp_name;
+        this.Emp_id=Emp_id;
+        this.Address=Address;
+        this.Mail_id=Mail_id;
+        this.Mobile_no=Mobile_no;
+    }
+    
+    public void display(){
+        System.out.println("\n Name : "+ Emp_name+
+        "\n ID : "+Emp_id+
+        "\n Address : "+Address+
+        "\n Mail ID : "+Mail_id+
+        "\n Mobile No : "+Mobile_no); }
+        
+    public void gross_salary(double bp){
+        System.out.println("basic pay : "+bp);
+        double gs=bp+(bp*0.97)+(bp*0.10);
+        System.out.println("Gross salary : "+gs);
+    }
+     public void net_salary(double bp){
+        double ns=bp+(bp*0.97)+(bp*0.10)-(bp*0.12)-(bp*0.001);
+        System.out.println("net salary : "+ns);
+    }
+    }
+    
+    class Programmer extends Employee{
+        double bp;
+        Programmer(String Emp_name,int Emp_id,String Address,String Mail_id,long Mobile_no,double bp){
+            super(Emp_name,Emp_id,Address,Mail_id,Mobile_no);
+            this.bp=bp;
+        }
+        public void display(){
+            System.out.println("\n Programmer Information");
+            super.display();
+        };
+       public void calculte_salary(){
+        gross_salary(bp);
+        net_salary(bp);
+       }
+    }
+    class TeamLead extends Employee{
+        double bp;
+        TeamLead(String Emp_name,int Emp_id,String Address,String Mail_id,long Mobile_no,double bp){
+            super(Emp_name,Emp_id,Address,Mail_id,Mobile_no);
+            this.bp=bp;
+        }
+        public void display(){
+            System.out.println("\n TeamLeader Information");
+            super.display();
+        };
+       public void calculte_salary(){
+        gross_salary(bp);
+        net_salary(bp);
+       }
+    }
+class AssistantProjectManager extends Employee{
+        double bp;
+        AssistantProjectManager(String Emp_name,int Emp_id,String Address,String Mail_id,long Mobile_no,double bp){
+            super(Emp_name,Emp_id,Address,Mail_id,Mobile_no);
+            this.bp=bp;
+        }
+        public void display(){
+            System.out.println("\n AssistantProjectManager Information");
+            super.display();
+        };
+       public void calculte_salary(){
+        gross_salary(bp);
+        net_salary(bp);
+       }
+    }
+    class ProjectManager extends Employee{
+        double bp;
+        ProjectManager(String Emp_name,int Emp_id,String Address,String Mail_id,long Mobile_no,double bp){
+            super(Emp_name,Emp_id,Address,Mail_id,Mobile_no);
+            this.bp=bp;
+        }
+        public void display(){
+            System.out.println("\n ProjectManager Information");
+            super.display();
+        };
+       public void calculte_salary(){
+        gross_salary(bp);
+        net_salary(bp);
+       }
+    }
+class Main {
+    public static void main(String[] args) {
+        Programmer p1=new Programmer("amol",34,"Sambhajinagar","amolgaikwad2511@gmail.com",8446042386L,50000);
+        p1.display();
+       p1.calculte_salary();
+       TeamLead t1=new TeamLead("om",47,"newasa","omjadhav97@gmail.com",7887656770L,70000);
+        t1.display();
+       t1.calculte_salary();
+       AssistantProjectManager a1=new AssistantProjectManager("kartik",19,"kannad","kartik666@gmail.com",9890256770L,55000);
+        a1.display();
+       a1.calculte_salary();
+       ProjectManager b1=new ProjectManager("anuu",77,"Sangamner","anuu25@gmail.com",9798896770L,120000);
+        b1.display();
+       b1.calculte_salary();
+        
+    }
+}
